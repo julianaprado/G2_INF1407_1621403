@@ -38,17 +38,20 @@ class LivroUpdateView(View):
     def get(self, request, pk, *args, **kwargs):
         livro = Livro.objects.get(pk=pk)
         formulario=LivrosModelToForm(instance=livro)
-        context = {'livro':formulario, }
+        context = {'livro': formulario, }
         return render(request, 'livros/atualizaLivro.html', context)
 
     def post(slef, request, pk, *args, **kwargs):
         livro = get_object_or_404(Livro, pk=pk)
-        formulario = LivrosModelToForm(instance=pessoa)
+        formulario = LivrosModelToForm(instance=livro)
+        print("entrou no post")
         if formulario.is_valid():
+            print("formulario eh valido")
             livro = formulario.save()
-            pessoa.save()
-            return HttpResponseRedirect(reverse_lazy("livroos:lista-Livros"))
+            livro.save()
+            return HttpResponseRedirect(reverse_lazy("livros:lista-Livros"))
         else:
+            print("nao valido")
             context = {'livro': formulario,}
             return render(request, 'livros/atualizaLivro.html', context)
 
