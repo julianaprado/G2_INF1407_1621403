@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="{% static 'livros/css/estilo.css' %}"> 
   </head>
   <body>
-      {% for livro in livros %}
-      <tr><th>Titulo</th><th>Data de Publicação</th> <th>Autor</th><th>Preço</th><th>Quantidade de Exemplares</th></tr>
-      <tr>
-        <td>{{livro.titulo}}</td>
-        <td>{{livro.dataPublicacao}}</td>
-        <td>{{livro.autor}}</td>
-        <td>{{livro.preco}}</td>
-        <td>{{livro.quantidadeExemplares}}/td>
-      </tr> 
-      {% empty %}
+    {% if pessoas %}
+        {% for livro in livros %}
+        <tr><th>Titulo</th><th>Data de Publicação</th> <th>Autor</th><th>Preço</th><th>Quantidade de Exemplares</th></tr>
+        <tr>
+          <td>{{livro.titulo}}</td>
+          <td>{{livro.dataPublicacao}}</td>
+          <td>{{livro.autor}}</td>
+          <td>{{livro.preco}}</td>
+          <td>{{livro.quantidadeExemplares}}/td>
+            <td><a href="{% url 'livros:atualiza-Livros' pk=livro.id %}">Atualizar</a></td>
+            <td><a href="{% url 'livros:apaga-Livros' pk=livro.id %}">Excluir</a></td>
+        </tr> 
+        {% endfor %}
+      {% else %}
           Ainda não tem livros cadastrados na loja
-      {% endfor %}
+      {% endif %}
   </body>
 </html>

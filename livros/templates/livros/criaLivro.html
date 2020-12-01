@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CriaLivro</title>
+    <link rel="stylesheet" href="{% static 'livros/css/estilo.css' %}">
+</head>
+
+<body><h1>Cria um livro</h1>
+    <form action="" method="POST">{% csrf_token%}<table class='formulario'>{{ formulario.as_table}}</table><button
+            type="submit">Criar Livro</button></form>
+</body>
+
+</html>

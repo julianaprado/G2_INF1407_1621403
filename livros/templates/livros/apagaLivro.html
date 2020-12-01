@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Apaga Livro</title>
+    <link rel="stylesheet" href="{% static 'livros/css/estilo.css' %}">
+</head>
+
+<body>
+    <h1>Remova o livro</h1>
+    <form method="POST">
+        {% csrf_token %}
+        Confirma a remoção do livro {{livro.title}} de estoque? <br?>
+        <button>
+            <a href="{% url 'livros:lista-Livros' %}" style="text-decoration: none; color: black">
+                Cancelar
+            </a>
+        </button>
+        <input type="submit" value="Remove">
+    </form>
+</body>
+
+</html>
