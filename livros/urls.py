@@ -4,5 +4,6 @@ from livros import views
 app_name = 'livros'
 
 urlpatterns = [
-    path('lista/', views.ListaLivros.as_view(), name='lista-Livros'),
+    path('lista/', views.ListaLivrosView.as_view(), name='lista-Livros'),
+    path('', views.ListaLivrosView.as_view(),name='home-livros')
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from livros.models import Livro
 
-class ListaLivros(View):
+class ListaLivrosView(View):
 
     def get(self, request, *args, **kwargs):
 
