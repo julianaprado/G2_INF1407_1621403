@@ -43,7 +43,7 @@ class LivroUpdateView(View):
 
     def post(slef, request, pk, *args, **kwargs):
         livro = get_object_or_404(Livro, pk=pk)
-        formulario = LivrosModelToForm(instance=livro)
+        formulario = LivrosModelToForm(request.POST, instance=livro)
         print("entrou no post")
         if formulario.is_valid():
             print("formulario eh valido")
