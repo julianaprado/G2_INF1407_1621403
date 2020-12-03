@@ -2,6 +2,7 @@
 
 {% block title %}Login{% endblock %}
 {% block content %}
+<div>
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}
@@ -14,6 +15,7 @@
          </td>
      </tr>
   </table>
-  Esqueceu a senha? Clique <a href="{% url 'sec-password_change' %}">aqui</a>.
+  Esqueceu a senha? Clique <a href="{% url 'sec-password_reset' %}">aqui</a>.
 </form>
 {% endblock %}
+</div>

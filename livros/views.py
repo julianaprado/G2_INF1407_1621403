@@ -4,16 +4,22 @@ from livros.models import Livro
 from livros.forms import LivrosModelToForm
 from django.http.response import HttpResponseRedirect
 from django.urls.base import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class ListaLivrosView(View):
+class ListaLivrosView(LoginRequiredMixin,View):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+
+    model = Livro
+    template_name='livros/listaLivros.html'
     def get(self, request, *args, **kwargs):
-
         # buscar todos os livros do banco de dados
-        livros = Livro.objects.all()
+        livros = Livro.objects.filter(Funcionario=self.request.user)
+
 
         # dicionario de variaveis para o template
         context = {
-            'livros' : livros
+            'livros' : livros,
         }
 
         """
