@@ -8,6 +8,15 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'livros:lista-Livros' %}">Listar Livros<span class="sr-only">(current)</span></a>
         </li> 
+        <li>
+          <a class="nav-link" href="{% url 'sec-home' %}">Home</a>
+        </li>
+        <li>
+          <a class="nav-link" href="{% url 'sec-logout' %}">Logout</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link disabled" >Usuário {% firstof user.username "visitante" %}</a>
+      </li>
       </ul>
     </div>
   </nav>

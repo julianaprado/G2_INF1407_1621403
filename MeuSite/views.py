@@ -25,7 +25,7 @@ def registro(request):
 
 @login_required
 def paginaSecreta(request):
-    return render(request, 'livros/listaLivros.html')
+    return render(request, "registro/homeSec.html")
 
 class MeuUpdateView(UpdateView):
     def get(self, request, pk, *args, **kwargs):
