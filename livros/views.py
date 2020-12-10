@@ -39,6 +39,10 @@ class LivroCreateView(View):
             livro = formulario.save()
             livro.save()
             return HttpResponseRedirect(reverse_lazy("livros:lista-Livros"))
+        else:
+            print("nao valido")
+            context = {'livro': formulario,}
+            return render(request, 'livros/atualizaLivro.html', context)
 
 class LivroUpdateView(View):
     def get(self, request, pk, *args, **kwargs):
