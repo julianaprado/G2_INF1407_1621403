@@ -11,7 +11,7 @@ possa atribuir o username ao livro.
 
 
 class Livro(models.Model):
-    Funcionario = models.ForeignKey(User, on_delete=models.CASCADE)
+    Funcionario = models.ForeignKey(User, on_delete=models.CASCADE, default=User, null=False)
     titulo = models.CharField(max_length=200, help_text='Titulo', validators=[MaxLengthValidator(500, message='Nome grande demais.')])
     dataPublicacao = models.DateField(null=True, help_text='MM/DD/AAAA')
     autor = models.CharField(max_length=100, help_text='Nome do Autor', validators=[MaxLengthValidator(500, message='Nome grande demais.')])
